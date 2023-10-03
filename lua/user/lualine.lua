@@ -35,11 +35,6 @@ function M.config()
     icons_enabled = false,
   }
 
-  local location = {
-    "location",
-    padding = 0,
-  }
-
   local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end
@@ -49,17 +44,21 @@ function M.config()
       icons_enabled = true,
       theme = "auto",
       component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
       disabled_filetypes = { "alpha", "dashboard" },
       always_divide_middle = true,
     },
     sections = {
-      lualine_a = { "mode" },
+      lualine_a = {
+        { 'mode', separator = { left = '' }, right_padding = 3 },
+      },
       lualine_b = { "branch" },
       lualine_c = { diagnostics },
-      lualine_x = { diff, spaces, "encoding", filetype },
-      lualine_y = { location },
-      lualine_z = { "progress" },
+      lualine_x = { diff, spaces, "encoding"},
+      lualine_y = { filetype },
+      lualine_z = {
+        { 'location', separator = { right = '' }, left_padding = 3 },
+      },
     },
   }
 end

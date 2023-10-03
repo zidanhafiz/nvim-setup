@@ -11,17 +11,17 @@ function M.config()
   end
 
   toggleterm.setup {
-    size = 20,
-    open_mapping = [[<c-\>]],
+    size = 60,
+    open_mapping = [[<leader>v]],
     hide_numbers = true,
     shade_terminals = true,
     shading_factor = 2,
     start_in_insert = true,
-    insert_mappings = true,
+    insert_mappings = false,
     persist_size = true,
-    direction = "float",
+    direction = "vertical",
     close_on_exit = true,
-    shell = vim.o.shell,
+    shell = "pwsh",
     float_opts = {
       border = "curved",
     },
